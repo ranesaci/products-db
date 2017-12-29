@@ -21,6 +21,9 @@ sourceCompatibility = 1.8
 repositories {
 	mavenCentral()
 }
+ext {
+	springCloudVersion = 'Edgware.RELEASE'
+}
 
 
 dependencies {
@@ -30,4 +33,12 @@ dependencies {
 	runtime('mysql:mysql-connector-java')
 	compile('org.modelmapper:modelmapper:0.7.4')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile('org.springframework.cloud:spring-cloud-starter-eureka')
 }
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+

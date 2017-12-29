@@ -10,4 +10,6 @@ public interface ProductBO {
 
 	Product create(Product product);
 
+	List<Product> findByCategoryName(String categoryname);
+
 }

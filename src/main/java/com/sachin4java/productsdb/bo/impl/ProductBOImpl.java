@@ -37,4 +37,11 @@ class ProductBOImpl implements ProductBO {
 		return modelMapper.map(productRepository.save(entity), Product.class);
 	}
 
+	@Override
+	public List<Product> findByCategoryName(String categoryName) {
+		List<ProductEntity> productEntities = productRepository.findByCategoryName(categoryName);
+		Type listType = new TypeToken<List<Product>>() {}.getType();
+		return modelMapper.map(productEntities, listType);
+	}
+
 }
